@@ -1,0 +1,7 @@
+## Interface: 11306
+## Name: Shut the Fuck Up
+## Author: raethkcj
+## Version: 1.0
+## OptionalDependencies: NovaWorldBuffs
+
+stfu.lua
