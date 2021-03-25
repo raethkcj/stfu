@@ -19,6 +19,7 @@ if IsAddOnLoaded("Details") then
 	if L then
 		blocked_messages[L["STRING_VERSION_AVAILABLE"]] = true
 	end
+	blocked_messages["|CFFFFFF00[Details!]: To use Tiny Threat: right click the title bar and select Tiny Threat."] = true
 end
 
 if IsAddOnLoaded("aux-addon") then
