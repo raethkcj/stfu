@@ -7,6 +7,18 @@ DEFAULT_CHAT_FRAME.AddMessage = function(frame, message, ...)
 	end
 end
 
+setmetatable(blocked_messages, {
+	__index = function(t, k)
+		-- If the hash part of the table doesn't contain a message directly,
+		-- then iterate the patterns in the array part of the table
+		for i,v in ipairs(t) do
+			if string.match(k, v) then
+				return true
+			end
+		end
+	end
+})
+
 if IsAddOnLoaded("NovaWorldBuffs") then
 	local L = LibStub("AceLocale-3.0"):GetLocale("NovaWorldBuffs", true)
 	if L then
@@ -24,4 +36,12 @@ end
 
 if IsAddOnLoaded("aux-addon") then
 	blocked_messages[LIGHTYELLOW_FONT_COLOR_CODE .. '<aux> ' .. 'loaded - /aux'] = true
+end
+
+if IsAddOnLoaded("WeakAuras") then
+	local L = WeakAuras.L
+	if L then
+		local pattern = "|cff9900ffWeakAuras:|r " .. string.gsub(L["There are %i updates to your auras ready to be installed!"], "%%i", "%%d+")
+		tinsert(blocked_messages, pattern)
+	end
 end
