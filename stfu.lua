@@ -30,7 +30,7 @@ end
 if IsAddOnLoaded("NovaWorldBuffs") then
 	local L = LibStub("AceLocale-3.0"):GetLocale("NovaWorldBuffs", true)
 	if L then
-		blocked_messages["|cFFFF6900" .. L["versionOutOfDate"]] = true
+		blocked_messages["|cffff6900" .. L["versionOutOfDate"]] = true
 	end
 end
 
@@ -49,7 +49,7 @@ end
 if IsAddOnLoaded("WeakAuras") then
 	local L = WeakAuras.L
 	if L then
-		local pattern = "|cff9900ffWeakAuras:|r " .. string.gsub(L["There are %i updates to your auras ready to be installed!"], "%%i", "%%d+")
+		local pattern = "|cff9900ffWeakAuras:|r " .. untokenize(L["There are %i updates to your auras ready to be installed!"])
 		tinsert(blocked_messages, pattern)
 	end
 end
