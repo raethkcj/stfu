@@ -2,6 +2,6 @@
 ## Name: Shut the Fuck Up
 ## Author: raethkcj
 ## Version: 1.0
-## OptionalDependencies: aux-addon, Details, NovaWorldBuffs, WeakAuras
+## OptionalDependencies: aux-addon, DBM-Core, Details, GlobalIgnoreList, NovaWorldBuffs, Questie, WeakAuras
 
 stfu.lua

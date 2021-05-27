@@ -53,3 +53,25 @@ if IsAddOnLoaded("WeakAuras") then
 		tinsert(blocked_messages, pattern)
 	end
 end
+
+if IsAddOnLoaded("GlobalIgnoreList") then
+	local prefix = "|cff33ff99Global Ignore: |cffffffff"
+	blocked_messages[prefix .. "Type /gignore or /gi for help and options"] = true
+	blocked_messages[prefix .. "Synchronizing Ignore list..."] = true
+	blocked_messages[prefix .. "New character found: Importing ignored players"] = true
+end
+
+if IsAddOnLoaded("Questie") then
+	blocked_messages["|cffff0000You have an outdated version of Questie!|r"] = true
+	blocked_messages["|cffff0000Please consider updating!|r"] = true
+end
+
+if IsAddOnLoaded("DBM-Core") then
+	local L = DBM_CORE_L
+
+	local pattern1 = ("|cffff7d0a<|r|cffffd200%s|r|cffff7d0a>|r %s"):format(L.DBM, L.UPDATEREMINDER_HEADER:match("([^\n]*)"))
+	blocked_messages[pattern1] = true
+
+	local pattern2 = ("|cffff7d0a<|r|cffffd200%s|r|cffff7d0a>|r %s"):format(L.DBM, untokenize(L.UPDATEREMINDER_HEADER:match("\n(.*)")))
+	tinsert(blocked_messages, pattern2)
+end
