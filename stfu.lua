@@ -7,6 +7,10 @@ DEFAULT_CHAT_FRAME.AddMessage = function(frame, message, ...)
 	end
 end
 
+local print = function(...)
+	AddMessage(DEFAULT_CHAT_FRAME, ...)
+end
+
 setmetatable(blocked_messages, {
 	__index = function(t, k)
 		-- If the hash part of the table doesn't contain a message directly,
@@ -18,6 +22,10 @@ setmetatable(blocked_messages, {
 		end
 	end
 })
+
+local untokenize = function(s)
+	return string.gsub(s, "%%%a", ".-")
+end
 
 if IsAddOnLoaded("NovaWorldBuffs") then
 	local L = LibStub("AceLocale-3.0"):GetLocale("NovaWorldBuffs", true)
