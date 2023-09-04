@@ -73,9 +73,11 @@ end
 if IsAddOnLoadable("DBM-Core") then
 	local L = DBM_CORE_L
 
-	local pattern1 = ("|cffff7d0a<|r|cffffd200%s|r|cffff7d0a>|r %s"):format(L.DBM, L.UPDATEREMINDER_HEADER:match("([^\n]*)"))
+	local pattern1 = "|cffff7d0a<|r|cffffd200DBM|r|cffff7d0a>|r Your version of Deadly Boss Mods is out-of-date."
 	blocked_messages[pattern1] = true
 
-	local pattern2 = ("|cffff7d0a<|r|cffffd200%s|r|cffff7d0a>|r %s"):format(L.DBM, untokenize(L.UPDATEREMINDER_HEADER:match("\n(.*)")))
+	local pattern2 = untokenize(" Version %s (%s) is available for download through Curse, WoWI, or from GitHub Releases page")
+	local pattern3 = "|cffff7d0a<|r|cffffd200DBM|r|cffff7d0a>|r  Version .* is available for download through Curse, Wago, WoWI, or from GitHub Releases page"
+	local pattern4 = "|cffff7d0a<|r|cffffd200DBM|r|cffff7d0a>|r Your version of Deadly Boss Mods is out-of-date.\Version .* is available for download through Curse, Wago, WoWI, or from GitHub Releases page"
 	tinsert(blocked_messages, pattern2)
 end
