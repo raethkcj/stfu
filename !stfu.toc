@@ -1,0 +1,8 @@
+## Interface: 11404
+## Interface_TBC: 20504
+## Interface_Wrath: 30403
+## Name: Shut the Fuck Up
+## Author: raethkcj
+## Version: 1.0
+
+stfu.lua
