@@ -80,4 +80,31 @@ if IsAddOnLoadable("DBM-Core") then
 	local pattern3 = "|cffff7d0a<|r|cffffd200DBM|r|cffff7d0a>|r  Version .* is available for download through Curse, Wago, WoWI, or from GitHub Releases page"
 	local pattern4 = "|cffff7d0a<|r|cffffd200DBM|r|cffff7d0a>|r Your version of Deadly Boss Mods is out-of-date.\Version .* is available for download through Curse, Wago, WoWI, or from GitHub Releases page"
 	tinsert(blocked_messages, pattern2)
+	tinsert(blocked_messages, pattern3)
+	tinsert(blocked_messages, pattern4)
+end
+
+if IsAddOnLoadable("LFGBulletinBoard") then
+	local pattern = "|cFFFF1C1C Loaded: LFG Bulletin Board 2.61 by Vyscî-Whitemane"
+	blocked_messages[pattern] = true
+end
+
+if IsAddOnLoadable("RankSentinel") then
+	local pattern = "|cFFFFFF00Rank Sentinel|r: |c0000FF00Loaded.-|r"
+	tinsert(blocked_messages, pattern)
+end
+
+if IsAddOnLoadable("RCLootCouncil_Classic") then
+	local pattern = "|cff33ff99RCLootCouncil_Classic|r: Your version .+ is outdated. Newer version is .+, please update RCLootCouncil."
+	tinsert(blocked_messages, pattern)
+end
+
+if IsAddOnLoadable("+Wowhead_Looter") then
+	local pattern = untokenize("|cffffff7fWowhead Looter|r loaded (%d) - %d-%d-%d")
+	tinsert(blocked_messages, pattern)
+end
+
+if IsAddOnLoadable("WowSimsExporter") then
+	local pattern = "|cff33ff99WowSimsExporter|r: WowSimsExporter .- Initialized. use /wse For Window."
+	tinsert(blocked_messages, pattern)
 end
