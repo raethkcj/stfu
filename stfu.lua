@@ -57,6 +57,11 @@ if IsAddOnLoadable("WeakAuras") then
 	tinsert(blocked_messages, pattern)
 end
 
+if IsAddOnLoadable("Gargul") then
+	local pattern = "Gargul.-is available"
+	tinsert(blocked_messages, pattern)
+end
+
 if IsAddOnLoadable("GlobalIgnoreList") then
 	local prefix = "|cff33ff99Global Ignore: |cffffffff"
 	blocked_messages[prefix .. "Type /gignore or /gi for help and options"] = true
@@ -68,6 +73,8 @@ if IsAddOnLoadable("Questie") then
 	blocked_messages["|cff33ff99Questie|r: |cffff0000 You have an outdated version of Questie! |r"] = true
 	blocked_messages["|cff33ff99Questie|r: |cffff0000 Please consider updating! |r"] = true
 	blocked_messages["|cff30fc96Questie|r: |cff00bc32Hiding drop-down menus on the World Map.|r This is currently necessary as a workaround for a bug in the default Blizzard UI related to drop-down menus."] = true
+	blocked_messages["|cffffde7fWelcome to Season of Discovery! Questie is being continuously updated with the new quests from this season, but it will take time. Be sure to update frequently to minimize errors.|r"] = true
+	blocked_messages["|cffffde7fWhile playing Season of Discovery, Questie will notify you if it encounters a quest it doesn't yet know about. Please share this info with us on Discord or GitHub!|r"] = true
 end
 
 if IsAddOnLoadable("DBM-Core") then
@@ -87,6 +94,10 @@ end
 if IsAddOnLoadable("LFGBulletinBoard") then
 	local pattern = "|cFFFF1C1C Loaded: LFG Bulletin Board 2.61 by Vyscî-Whitemane"
 	blocked_messages[pattern] = true
+end
+
+if IsAddOnLoadable("M6") then
+	blocked_messages["Unknown macro option: scri"] = true
 end
 
 if IsAddOnLoadable("RankSentinel") then
